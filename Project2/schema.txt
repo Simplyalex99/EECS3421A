@@ -1,0 +1,88 @@
+CREATE TABLE Person("sin" integer PRIMARY KEY,
+"name" varchar(30),
+address varchar(30) ,
+phone varchar(15) NOT NULL
+);
+
+
+CREATE TABLE Bubble(
+ personA integer ,
+ personB integer ,
+PRIMARY KEY(personA,personB),
+FOREIGN KEY (personA) REFERENCES Person(sin),
+FOREIGN KEY (personB) REFERENCES Person(sin)
+);
+
+
+CREATE TABLE Method(method varchar(30) PRIMARY KEY);
+
+
+CREATE TABLE Place(
+ placename varchar(30) PRIMARY KEY ,
+ address varchar(30) NOT NULL,
+ description varchar(20),
+ gps point
+);
+
+
+CREATE TABLE TestCentre(
+ testcentre varchar(30) PRIMARY KEY ,
+ foreign key (testcentre) REFERENCES Place(placename)
+);
+
+
+CREATE TABLE Result(
+ result  varchar(20) PRIMARY KEY
+);
+
+
+CREATE TABLE TimeSlot(
+timeslot timestamp PRIMARY KEY
+);
+
+
+CREATE TABLE Recon(
+ "sin" int   ,
+ placename varchar(30)  ,
+ "time" timestamp  ,
+ method varchar(30)  ,
+ FOREIGN KEY ("sin") REFERENCES  Person(sin),
+ FOREIGN KEY (placename) REFERENCES  Place(placename),
+ FOREIGN KEY(method) REFERENCES  Method(method),
+ FOREIGN KEY ("time") REFERENCES  TimeSlot(timeslot),
+PRIMARY KEY("sin",placename,"time",method)
+);
+
+
+CREATE TABLE TestType(
+    testtype varchar(20) primary key
+);
+
+
+CREATE TABLE Offer(
+ testcentre varchar(30),
+ testtype varchar(20),
+ FOREIGN KEY (testcentre) REFERENCES TestCentre(testcentre),
+FOREIGN KEY  (testtype) REFERENCES TestType(testtype),
+PRIMARY KEY(testcentre,testtype)
+);
+
+
+CREATE TABLE Test(
+"sin" int  ,
+"time" timestamp  ,
+testtype varchar(20),
+Taction varchar(20),
+testcentre varchar(30),
+FOREIGN KEY ("sin") REFERENCES Person(sin),
+FOREIGN KEY("time") REFERENCES TimeSlot(timeslot),
+FOREIGN KEY (testtype) REFERENCES TestType(testtype),
+FOREIGN KEY(Taction) REFERENCES Result(result),
+FOREIGN KEY (testcentre) REFERENCES TestCentre(testcentre),
+PRIMARY KEY("sin","time")
+);
+
+
+
+
+

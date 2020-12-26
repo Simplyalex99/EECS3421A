@@ -1,0 +1,2 @@
+select  P.login,P.name,P.gender ,(select count (*) from Avatar as A2 where P.login = A2.login) as avatars  from Player as P,Avatar as A
+where P.login = A.login and P.gender <> A.gender  GROUP BY P.login  order by P.login;

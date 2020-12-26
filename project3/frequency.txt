@@ -1,0 +1,2 @@
+select login,realm,count(day) as visits , ((((max(day)-min(day)) :: Numeric(5,2) ) /(count(day)-1)):: Numeric(5,2)) as frequency
+from visit group by login, realm  having count(day)>1  order by login,realm;

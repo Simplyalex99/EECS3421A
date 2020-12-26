@@ -1,0 +1,7 @@
+#,sin,       time,                     testtype,          taction,            testcenter,        offered
+1,916238457,2020-04-02 09:00:00.000000,sero logical test, requires retest,    iHealth Center,    yes
+2,916238457,2020-05-23 09:00:00.000000,blood test,        quarantine 14 days, iHealth Center,    yes
+3,345122711,2020-05-23 09:00:00.000000,sero logical test, no action required, Hook Health Center,no
+4,854221676,2020-04-15 11:00:00.000000,blood test,        no action required, Hook Health Center,yes
+5,916765432,2020-04-01 13:00:00.000000,sero logical test, no action required, iHealth Center,    yes
+6,622149712,2020-05-10 09:00:00.000000,blood test,        no action required, CML Healthcare,    yes

@@ -1,0 +1,2 @@
+select  distinct  realm,day,theme from loot  as golden where treasure ilike '%Gold%'
+                                           and login is not NULL  order by day,realm,theme;

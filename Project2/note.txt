@@ -1,0 +1,3 @@
+1) Primary keys are not assigned with NOT NULL value for the definition of primary keys implies not null and unique.
+2) Any compile errors encountered means a mis-spelt attribute which if fixed the  code will compile. 
+3) The Action Schema is represented by Result schema.

@@ -1,0 +1,93 @@
+INSERT INTO Person("sin","name",address,phone) VALUES(916238457,'Ashly','1328 Algona Street','807-939-2022');
+INSERT INTO Person("sin","name",address,phone) VALUES(345122711,'Dennis','83 Glover Road','738-240-2923');
+INSERT INTO Person("sin","name",address,phone) VALUES(854221676,'John','3872 Avenue','780-645-5865');
+INSERT INTO Person("sin","name",address,phone) VALUES(916765432,'Ferris','15 Pine Street','403-704-1260');
+INSERT INTO Person("sin","name",address,phone) VALUES(622149712,'Daniel','26 Wood Street','647-213-2022');
+INSERT INTO Person("sin","name",address,phone) VALUES(111222333,'Alice','1358 Algona Street','647-227-2099');
+
+
+INSERT INTO Place(placename,address,description,gps) VALUES('CML Healthcare','12 Woodbridge Vaughn','Medical care',point(-81.4,30.3));
+INSERT INTO Place(placename,address,description,gps) VALUES('Hook Health Center','8 Taber Road','Medical care',point(-16.2,15.2));
+INSERT INTO Place(placename,address,description,gps) VALUES('iHealth Center','152 Humber Road','Medical care',point(152.3,100.1));
+INSERT INTO Place(placename,address,description,gps) VALUES('Albion Mcdonald','7 Queens Road','Fast food',point(100.3,100.1));
+INSERT INTO Place(placename,address,description,gps) VALUES('Albion Tim Horton','9 Queens Road','Fast food',point(123.1,100.1));
+INSERT INTO Place(placename,address,description,gps) VALUES('Albion Subway','12 Queens Road','Fast food',point(120,100.1));
+INSERT INTO Place(placename,address,description,gps) VALUES('Vaughn Jackaster','19 Vaughn Road','Fast food',point(200.3,147.1));
+
+
+
+
+INSERT INTO TimeSlot(timeslot) VALUES('2020-04-02 09:00:00');
+INSERT INTO TimeSlot(timeslot) VALUES('2020-04-02 09:30:00');
+INSERT INTO TimeSlot(timeslot) VALUES('2020-05-23 09:00:00');
+INSERT INTO TimeSlot(timeslot) VALUES('2020-05-23 09:15:00');
+INSERT INTO TimeSlot(timeslot) VALUES('2020-04-15 11:00:00');
+INSERT INTO TimeSlot(timeslot) VALUES('2020-04-15 11:30:00');
+INSERT INTO TimeSlot(timeslot) VALUES('2020-04-01 13:00:00');
+INSERT INTO TimeSlot(timeslot) VALUES('2020-04-01 13:15:00');
+INSERT INTO TimeSlot(timeslot) VALUES('2020-05-10 09:00:00');
+INSERT INTO TimeSlot(timeslot) VALUES('2020-05-10 09:30:00');
+INSERT INTO TimeSlot(timeslot) VALUES('2020-06-15 14:00:00');
+INSERT INTO TimeSlot(timeslot) VALUES('2020-06-15 14:30:00');
+INSERT INTO TimeSlot(timeslot) VALUES('2020-03-15 10:30:00');
+INSERT INTO TimeSlot(timeslot) VALUES('2020-03-15 12:30:00');
+INSERT INTO TimeSlot(timeslot) VALUES('2020-03-16 10:30:00');
+INSERT INTO TimeSlot(timeslot) VALUES('2020-03-17 10:30:00');
+
+
+
+INSERT INTO Method(method) VALUES('surveillance camera');
+INSERT INTO Method(method) VALUES('contact-tracing app');
+INSERT INTO Method(method) VALUES('registry sign in');
+INSERT INTO Method(method) VALUES('registry sign out');
+
+INSERT INTO TestType(testtype) VALUES('sero logical test');
+INSERT INTO TestType(testtype) VALUES('nuclei acid-base');
+INSERT INTO TestType(testtype) VALUES('blood test');
+
+INSERT INTO TestCentre(testcentre) VALUES('iHealth Center');
+INSERT INTO TestCentre(testcentre) VALUES('CML Healthcare');
+INSERT INTO TestCentre(testcentre) VALUES('Hook Health Center');
+
+INSERT INTO Result(result) VALUES('requires retest');
+INSERT INTO Result(result) VALUES('quarantine 14 days');
+INSERT INTO Result(result) VALUES('no action required');
+
+INSERT INTO Offer(testtype,testcentre) VALUES('sero logical test','iHealth Center');
+INSERT INTO Offer(testtype,testcentre) VALUES('nuclei acid-base','iHealth Center');
+INSERT INTO Offer(testtype,testcentre) VALUES('blood test','iHealth Center');
+INSERT INTO Offer(testtype,testcentre) VALUES('blood test','CML Healthcare');
+INSERT INTO Offer(testtype,testcentre) VALUES('blood test','Hook Health Center');
+
+
+INSERT INTO Test("sin","time",testtype,Taction,testcentre) VALUES(916238457,'2020-04-02 09:00:00','sero logical test','requires retest','iHealth Center');
+INSERT INTO Test("sin","time",testtype,Taction,testcentre) VALUES(916238457,'2020-05-23 09:00:00','blood test','quarantine 14 days','iHealth Center');
+INSERT INTO Test("sin","time",testtype,Taction,testcentre) VALUES(345122711,'2020-05-23 09:00:00','sero logical test','no action required','Hook Health Center');
+INSERT INTO Test("sin","time",testtype,Taction,testcentre) VALUES(854221676,'2020-04-15 11:00:00','blood test','no action required','Hook Health Center');
+INSERT INTO Test("sin","time",testtype,Taction,testcentre) VALUES(916765432,'2020-04-01 13:00:00','sero logical test','no action required','iHealth Center');
+INSERT INTO Test("sin","time",testtype,Taction,testcentre) VALUES(622149712,'2020-05-10 09:00:00','blood test','no action required','CML Healthcare');
+
+
+
+INSERT INTO Recon(sin,placename,time,method) VALUES(916238457,'iHealth Center','2020-04-02 09:00:00','registry sign in');
+INSERT INTO Recon(sin,placename,time,method) VALUES(916238457,'iHealth Center','2020-04-02 09:30:00','registry sign out');
+INSERT INTO Recon(sin,placename,time,method) VALUES(345122711,'Hook Health Center','2020-05-23 09:00:00','registry sign in');
+INSERT INTO Recon(sin,placename,time,method) VALUES(345122711,'Hook Health Center','2020-05-23 09:15:00','registry sign out');
+INSERT INTO Recon(sin,placename,time,method) VALUES(854221676,'Hook Health Center','2020-04-15 11:00:00','registry sign in');
+INSERT INTO Recon(sin,placename,time,method) VALUES(854221676,'Hook Health Center','2020-04-15 11:30:00','registry sign out');
+INSERT INTO Recon(sin,placename,time,method) VALUES(916765432,'iHealth Center','2020-04-01 13:00:00','registry sign in');
+INSERT INTO Recon(sin,placename,time,method) VALUES(916765432,'iHealth Center','2020-04-01 13:15:00','registry sign out');
+INSERT INTO Recon(sin,placename,time,method) VALUES(622149712,'CML Healthcare','2020-05-10 09:00:00','registry sign in');
+INSERT INTO Recon(sin,placename,time,method) VALUES(622149712,'CML Healthcare','2020-05-10 09:30:00','registry sign out');
+INSERT INTO Recon(sin,placename,time,method) VALUES(916238457,'iHealth Center','2020-05-23 09:00:00','registry sign in');
+INSERT INTO Recon(sin,placename,time,method) VALUES(916238457,'iHealth Center','2020-05-23 09:15:00','registry sign out');
+
+INSERT INTO Recon(sin,placename,time,method) VALUES(111222333,'Albion Mcdonald','2020-03-15 10:30:00','contact-tracing app');
+INSERT INTO Recon(sin,placename,time,method)  VALUES(111222333,'Albion Tim Horton','2020-03-15 12:30:00','contact-tracing app');
+INSERT INTO Recon(sin,placename,time,method) VALUES(111222333,'Albion Mcdonald','2020-04-02 09:00:00','contact-tracing app');
+INSERT INTO Recon(sin,placename,time,method) VALUES(111222333,'Albion Subway','2020-03-16 10:30:00','contact-tracing app');
+INSERT INTO Recon(sin,placename,time,method)  VALUES(111222333,'Vaughn Jackaster','2020-03-17 10:30:00','contact-tracing app');
+INSERT INTO Recon(sin,placename,time,method) VALUES(622149712,'Albion Mcdonald','2020-03-15 12:30:00','contact-tracing app');
+INSERT INTO Recon(sin,placename,time,method) VALUES(622149712,'Vaughn Jackaster','2020-03-15 12:30:00','contact-tracing app');
+INSERT INTO Recon(sin,placename,time,method) VALUES(622149712,'Albion Tim Horton','2020-03-15 12:30:00','contact-tracing app');
+

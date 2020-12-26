@@ -1,0 +1,2 @@
+select distinct theme ,day ,realm,succeeded from Quest as evening where
+    succeeded > '20:00:00' or succeeded is NULL  order by theme,day,realm;

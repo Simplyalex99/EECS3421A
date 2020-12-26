@@ -1,0 +1,44 @@
+
+select t1.realm,t1.race,t1.gender,t1.total from (
+
+
+    SELEct avatars.realm, avatars.race, avatars.gender, sum(tr.sql) as total
+    FROM ( SELECT DISTINCT realm, race, gender, a.name
+                 FROM Avatar as a,
+                      Visit as v
+                 ORDER BY realm, race, gender) as avatars
+    NATURAL JOIN Treasure as tr
+ NATURAL JOIN Loot as lt
+ NATURAL JOIN Visit as vt
+ NATURAL LEFT JOIN Avatar as a
+WHERE
+   lt.realm = avatars.realm
+   AND
+    vt.name = avatars.name
+    AND     lt.treasure = tr.treasure
+    AND
+    a.race = avatars.race
+GROUP BY avatars.realm, avatars.race, avatars.gender
+ORDER BY realm, race, gender
+ )  as t1,
+(  SELEct avatars.realm, avatars.race, avatars.gender, sum(tr.sql) as total
+    FROM ( SELECT DISTINCT realm, race, gender, a.name
+                 FROM Avatar as a,
+                      Visit as v
+                 ORDER BY realm, race, gender) as avatars
+    NATURAL JOIN Treasure as tr
+ NATURAL JOIN Loot as lt
+ NATURAL JOIN Visit as vt
+ NATURAL LEFT JOIN Avatar as a
+WHERE
+   lt.realm = avatars.realm
+   AND
+    vt.name = avatars.name
+    AND     lt.treasure = tr.treasure
+    AND
+    a.race = avatars.race
+GROUP BY avatars.realm, avatars.race, avatars.gender
+ORDER BY realm, race, gender
+
+    ) as t2
+where  t1.gender <>  t2.gender and t1.realm=t2.realm and t1.race= t2.race and t1.total>t2.total;

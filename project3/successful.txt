@@ -1,0 +1,2 @@
+select theme,(count(*)) as quests from quest where
+theme not in(select theme from Quest  where succeeded is NULL ) group by theme order by theme;

@@ -1,0 +1,9 @@
+select a1.login, Player.name, a1.day, a1.realm,a1.theme
+                     from Actor as a1,
+                          Actor as a2,Player
+                     where a1.login = a2.login
+                       and a1.day = a2.day
+                       and a1.realm = a2.realm
+                       and a1.theme <> a2.theme
+and Player.login = a1.login
+order  by login,name,day,realm,theme;

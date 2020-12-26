@@ -1,0 +1,1 @@
+select * from Player as myself where name ilike '%' || myself.login || '%' order by login asc;
